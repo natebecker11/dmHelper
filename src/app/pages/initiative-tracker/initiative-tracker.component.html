@@ -1,0 +1,80 @@
+<div class='initTrackerPage'>
+  <mat-card class='trackerSetup' *ngIf="Phase < 3">
+    <mat-card-header>
+      <mat-card-title>Initiative Tracker</mat-card-title>
+      <mat-card-subtitle>Select Characters and Go!</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content *ngIf="Phase === 1">
+      <div class='pcSelect'>
+        <label>Select PCs for initiative:</label>
+        <ng-container *ngFor="let pc of PlayerChars">
+          <mat-checkbox [(ngModel)]="pc.selected">{{pc.char.DisplayName}}</mat-checkbox>
+        </ng-container>
+      </div>
+      <ng-container *ngIf="Monsters && Monsters.length > 0">
+        <div class="monsterSelect">
+          <label>Select Monsters for initative:</label>
+          <ng-container *ngFor="let monster of Monsters">
+            <mat-checkbox [(ngModel)]="monster.selected">{{monster.char.DisplayName}}</mat-checkbox>
+          </ng-container>
+        </div>
+      </ng-container>
+      <div class="addMonster">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Add Monsters
+              </mat-panel-title>
+              <mat-panel-description>
+                For Initiative, Silly
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="newName">
+              </mat-form-field>
+            </p>
+            <!-- <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Initiative Score</mat-label>
+                <input matInput [(ngModel)]="newScore">
+              </mat-form-field>
+            </p> -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Max HP</mat-label>
+                <input matInput [(ngModel)]="newMaxHp">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" min="1" default="1" [(ngModel)]="newQuantity">
+              </mat-form-field>
+            </p>
+            <mat-action-row>
+              <button mat-button (click)="OnClickAddMonster()">Add Monster</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-card-content>
+    <mat-card-content *ngIf="Phase === 2">
+      <ng-container *ngFor="let pItem of PreInitList">
+        <mat-form-field>
+          <mat-label>{{pItem.char.DisplayName}}</mat-label>
+          <input matInput appearance="outline" type="number" [(ngModel)]="pItem.score">
+        </mat-form-field>
+      </ng-container>      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="OnClickNext()">Next</button>
+    </mat-card-actions>
+  </mat-card>
+  <ng-container *ngIf="Phase === 3">
+    <app-initiative-list [InitList]="InitList"></app-initiative-list>
+  </ng-container>
+  
+</div>

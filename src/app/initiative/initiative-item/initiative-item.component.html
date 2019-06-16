@@ -1,0 +1,45 @@
+<mat-grid-list cols="4" rowHeight="37.5px" class="initiative-item">
+  <mat-grid-tile
+  [colspan]="3"
+  [rowspan]="1">
+    {{Vm.Item.DisplayName}}
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan]="1"
+  [rowspan]="1">
+    {{Vm.Item.InitiativeCount}}
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan]="1"
+  [rowspan]="1">
+    <input type="number" class="smallNum" [(ngModel)]="Vm.Item.CurrentHp">/{{Vm.Item.MaxHp}}
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan]="3"
+  [rowspan]="1">
+    <ng-container *ngFor="let status of Vm.Item.Status; let i = index">
+      {{status}}
+      <mat-icon class="fas fa-times-circle"></mat-icon>
+    </ng-container>  
+    <mat-icon class="fa fa-plus"></mat-icon>
+  <!-- <p>{{Vm.Item.StatusDisplay}}</p> -->
+  </mat-grid-tile>
+  <!-- <mat-grid-tile
+  [colspan]="1"
+  [rowspan]="1"
+  class="btn-tile">
+  <p>+/-</p>
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan]="3"
+  [rowspan]="1"
+  class="btn-tile">
+  <p>Add Status</p>
+  </mat-grid-tile> -->
+  <!-- <mat-grid-tile
+  [colspan]="1"
+  [rowspan]="1"
+  class="btn-tile">
+  <p></p>
+  </mat-grid-tile> -->
+</mat-grid-list>

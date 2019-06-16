@@ -1,0 +1,15 @@
+.mat-grid-tile{
+  background-color: lightgray;
+}
+
+.btn-tile{
+  background-color: lightcoral;
+}
+
+.initiative-item{
+  max-width: 300px;
+}
+
+.smallNum {
+  width: 30px;
+}
