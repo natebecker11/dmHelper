@@ -4,6 +4,7 @@ import { AttributeBlock } from 'src/app/shared/characters/attribute-block';
 import { MonsterChar } from 'src/app/shared/characters/monster-char';
 import { InitiativeItem } from 'src/app/initiative/initiative-item';
 import { Character } from 'src/app/shared/characters/character';
+import { InitiativeService } from 'src/app/initiative/initiative.service';
 
 @Component({
   selector: 'app-initiative-tracker',
@@ -25,7 +26,7 @@ export class InitiativeTrackerComponent implements OnInit {
 
   public Phase = 1;
 
-  constructor() { }
+  constructor(private initSvc: InitiativeService) { }
 
   ngOnInit() {
     this.Monsters = new Array<{char: MonsterChar, selected: boolean}>();
@@ -133,5 +134,6 @@ export class InitiativeTrackerComponent implements OnInit {
         }
       });
     this.Phase = 3;
+    this.initSvc.SetInitialOrder(this.InitList);
   }
 }

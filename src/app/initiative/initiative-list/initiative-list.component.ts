@@ -3,6 +3,7 @@ import { InitiativeItem } from '../initiative-item';
 import { Character } from 'src/app/shared/characters/character';
 import { AttributeBlock } from 'src/app/shared/characters/attribute-block';
 import { PlayerChar } from 'src/app/shared/characters/player-char';
+import { InitiativeService } from '../initiative.service';
 
 @Component({
   selector: 'app-initiative-list',
@@ -11,15 +12,20 @@ import { PlayerChar } from 'src/app/shared/characters/player-char';
 })
 export class InitiativeListComponent implements OnInit {
 
-  constructor() {
+  constructor(private initSvc: InitiativeService) {
    }
 
   //  public Characters: Array<Character>;
-   @Input() public InitList: Array<InitiativeItem>;
+  //  @Input() public InitList: Array<InitiativeItem>;
+   public InitList: Array<InitiativeItem>;
   //  public Booly: boolean = false;
    public Vm: InitiativeListComponent = this;
 
   ngOnInit() {
+    this.initSvc.CurrentOrder.subscribe(order => {
+      console.log(order);
+      this.InitList = order;
+    });
     // this.InitList = new Array<InitiativeItem>();
     // this.Characters = new Array<Character>();
 
@@ -81,8 +87,6 @@ export class InitiativeListComponent implements OnInit {
 
   // public ListItems: Array<InitiativeItem>;
   public OnClickNextInit() {
-    const currentChar = this.InitList[0];
-    const newList = this.InitList.slice(1).concat(currentChar);
-    this.InitList = newList;
+    this.initSvc.NextInit();
   }
 }

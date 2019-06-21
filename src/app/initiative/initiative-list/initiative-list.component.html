@@ -1,8 +1,8 @@
 <div>
   <h2>Fight!!!</h2>
   <button mat-button (click)="Vm.OnClickNextInit()">Next</button>
-  <div *ngFor="let item of Vm.InitList"
+  <div *ngFor="let item of Vm.InitList; let i = index;"
     class="init-item">
-    <app-initiative-item [Item]="item"></app-initiative-item>
+    <app-initiative-item [Item]="item" [Index]="i"></app-initiative-item>
   </div>
 </div>

@@ -5,8 +5,10 @@ export class InitiativeItem {
   public MaxHp: number;
   public CurrentHp: number;
   public ShowHp = false;
+
   // move addstatus/removestatus methods
   public Status: Array<string>;
+
 
   public get StatusDisplay(): string {
     return this.Status && this.Status.length > 0 ? this.Status.join(', ') : null;
@@ -18,6 +20,7 @@ export class InitiativeItem {
     this.DisplayName = character.DisplayName;
     this.MaxHp = character.MaxHp;
     this.CurrentHp = character.MaxHp;
+    this.Status = new Array<string>();
 
     if (initiativeCount === null) {
       // TODO: abstract rolling mechanics
