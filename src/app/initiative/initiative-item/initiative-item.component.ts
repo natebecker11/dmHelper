@@ -29,18 +29,14 @@ export class InitiativeItemComponent implements OnInit {
 
   ngOnInit() {
     this.initSvc.CurrentChar.subscribe(char => {
-      console.log(`order name is ${char.DisplayName}, our name is ${this.Item.DisplayName}`);
       this.IsActive = char.DisplayName === this.Item.DisplayName;
-      if (this.IsActive) {
-        console.log(`I'm ${this.Item.DisplayName} and i'm active`);
-      }
     });
 
   }
 
   public OnClickAddStatus() {
     this.IsAddingStatus = true;
-    this.onFocusInput();
+    this.setFocusInput();
   }
 
   public OnClickSaveStatus() {
@@ -61,12 +57,16 @@ export class InitiativeItemComponent implements OnInit {
     this.Item.Status = this.Item.Status.filter((stat, index) => index !== i);
   }
 
-  public OnBlur() {
+  public OnClickCancelAddStatus() {
     this.IsAddingStatus = false;
     this.NewStatus = '';
   }
 
-  private onFocusInput() {
+  public OnClickRemoveCharacter() {
+    this.initSvc.RemoveCharacter(this.Index);
+  }
+
+  private setFocusInput() {
     setTimeout(() => {
       const inputEl = document.querySelector(`input[data-index="${this.Index}"]`) as HTMLElement;
       inputEl.focus();

@@ -3,6 +3,9 @@
   [colspan]="3"
   [rowspan]="1">
     {{Vm.Item.DisplayName}}
+    <button mat-icon-button class="w30" (click)="OnClickRemoveCharacter()">
+      <mat-icon class="fas fa-times-circle"></mat-icon>
+    </button>
   </mat-grid-tile>
   <mat-grid-tile
   [colspan]="1"
@@ -38,12 +41,14 @@
           type="text" 
           appearance="outline" 
           (keydown)="OnPressEnter($event)" 
-          (blur)="OnBlur()"
           [(ngModel)]="Vm.NewStatus"
           [attr.data-index]="Vm.Index"/>      
       </mat-form-field>
-      <button mat-icon-button (click)="OnClickSaveStatus()">
+      <button mat-icon-button class="w30" (click)="OnClickSaveStatus()">
         <mat-icon class="fas fa-check"></mat-icon>
+      </button>
+      <button mat-icon-button class="w30" (click)="OnClickCancelAddStatus()">
+        <mat-icon class="fas fa-times-circle"></mat-icon>
       </button>
     </ng-container>
   </mat-grid-tile>

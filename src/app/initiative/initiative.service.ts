@@ -21,16 +21,31 @@ export class InitiativeService {
     this.currentSource = new BehaviorSubject(order[0]);
     this.CurrentChar = this.currentSource.asObservable();
 
-    this.orderSource.next(order);
-    this.currentSource.next(order[0]);
+    this.pushOrder();
   }
 
   public NextInit() {
     const currentChar = this.order[0];
     const newList = this.order.slice(1).concat(currentChar);
     this.order = newList;
-    this.orderSource.next(newList);
-    this.currentSource.next(newList[0]);
+    this.pushOrder();
+  }
+
+  public RemoveCharacter(index: number) {
+    if (index === 0) {
+      const newList = this.order.slice(1);
+      this.order = newList;
+    } else {
+      const firstHalf = this.order.slice(0, index);
+      const secondHalf = this.order.slice(index + 1);
+      this.order = firstHalf.concat(secondHalf);
+    }
+    this.pushOrder();
+  }
+
+  private pushOrder() {
+    this.orderSource.next(this.order);
+    this.currentSource.next(this.order[0]);
   }
 
 
