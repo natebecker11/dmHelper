@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
 
-const distDir = __dirname + "/dist/";
+const distDir = __dirname + "/dist/dmHelper/";
 app.use(express.static(distDir));
 
 
@@ -22,4 +23,8 @@ function handleError(res, reason, message, code) {
 app.get("/api/pcs", (req, res) => {
   res.status(200).json({message: "here some more moremore dudes"})
 });
+
+app.get('*', (_, res) => {
+  res.sendFile(path.join(distDir, 'index.html'))
+})
 
