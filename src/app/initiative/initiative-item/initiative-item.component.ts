@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { InitiativeItem } from '../initiative-item';
+import { InitiativeService } from '../initiative.service';
 
 @Component({
   selector: 'app-initiative-item',
@@ -8,32 +9,38 @@ import { InitiativeItem } from '../initiative-item';
 })
 export class InitiativeItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private initSvc: InitiativeService) { }
 
   @Input() public Item: InitiativeItem;
   @Input() public Index: number;
 
+
   public Vm: InitiativeItemComponent = this;
   public NewStatus: string;
   public IsAddingStatus = false;
+  public IsActive: boolean;
 
   public InitItemClasses = {
     initiativeItem: true,
-    gray: !this.isActive,
-    blue: this.isActive
+    gray: !this.IsActive,
+    blue: this.IsActive
   };
 
-  private get isActive(): boolean {
-    console.log('index from isActive:', this.Index)
-    return this.Index === 0;
-  }
 
   ngOnInit() {
-    console.log('index', this.Index)
+    this.initSvc.CurrentChar.subscribe(char => {
+      console.log(`order name is ${char.DisplayName}, our name is ${this.Item.DisplayName}`);
+      this.IsActive = char.DisplayName === this.Item.DisplayName;
+      if (this.IsActive) {
+        console.log(`I'm ${this.Item.DisplayName} and i'm active`);
+      }
+    });
+
   }
 
   public OnClickAddStatus() {
     this.IsAddingStatus = true;
+    this.onFocusInput();
   }
 
   public OnClickSaveStatus() {
@@ -54,4 +61,15 @@ export class InitiativeItemComponent implements OnInit {
     this.Item.Status = this.Item.Status.filter((stat, index) => index !== i);
   }
 
+  public OnBlur() {
+    this.IsAddingStatus = false;
+    this.NewStatus = '';
+  }
+
+  private onFocusInput() {
+    setTimeout(() => {
+      const inputEl = document.querySelector(`input[data-index="${this.Index}"]`) as HTMLElement;
+      inputEl.focus();
+    }, 5);
+  }
 }

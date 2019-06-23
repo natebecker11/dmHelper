@@ -21,6 +21,7 @@ export class InitiativeItem {
     this.MaxHp = character.MaxHp;
     this.CurrentHp = character.MaxHp;
     this.Status = new Array<string>();
+    this.ShowHp = character.ShowHp;
 
     if (initiativeCount === null) {
       // TODO: abstract rolling mechanics

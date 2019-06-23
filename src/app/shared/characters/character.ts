@@ -1,16 +1,17 @@
-import {AttributeBlock} from './attribute-block'
+import {AttributeBlock} from './attribute-block';
 
 export class Character {
 
   public MaxHp: number;
   public CurrentHp: number;
+  public ShowHp = false;
 
   public FirstName: string;
-  public LastName?: string;  
-  
-  public get DisplayName() : string {
-    return this.FirstName + (this.LastName ? " " + this.LastName : "")
-  }  
+  public LastName?: string;
+
+  public get DisplayName(): string {
+    return this.FirstName + (this.LastName ? ' ' + this.LastName : '');
+  }
 
   public Attributes?: AttributeBlock;
 

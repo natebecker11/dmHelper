@@ -1,4 +1,4 @@
-<mat-grid-list cols="5" rowHeight="37.5px" [ngClass]="Vm.InitItemClasses">
+<mat-grid-list cols="5" rowHeight="37.5px" class="initiativeItem" [class.blue]="Vm.IsActive">
   <mat-grid-tile
   [colspan]="3"
   [rowspan]="1">
@@ -33,29 +33,18 @@
     </ng-container>
     <ng-container *ngIf="Vm.IsAddingStatus">
       <mat-form-field style="max-width:100px;">
-        <input matInput type="text" appearance="outline" (keydown)="OnPressEnter($event)" [(ngModel)]="Vm.NewStatus"/>      
+        <input 
+          matInput 
+          type="text" 
+          appearance="outline" 
+          (keydown)="OnPressEnter($event)" 
+          (blur)="OnBlur()"
+          [(ngModel)]="Vm.NewStatus"
+          [attr.data-index]="Vm.Index"/>      
       </mat-form-field>
       <button mat-icon-button (click)="OnClickSaveStatus()">
         <mat-icon class="fas fa-check"></mat-icon>
       </button>
     </ng-container>
   </mat-grid-tile>
-  <!-- <mat-grid-tile
-  [colspan]="1"
-  [rowspan]="1"
-  class="btn-tile">
-  <p>+/-</p>
-  </mat-grid-tile>
-  <mat-grid-tile
-  [colspan]="3"
-  [rowspan]="1"
-  class="btn-tile">
-  <p>Add Status</p>
-  </mat-grid-tile> -->
-  <!-- <mat-grid-tile
-  [colspan]="1"
-  [rowspan]="1"
-  class="btn-tile">
-  <p></p>
-  </mat-grid-tile> -->
 </mat-grid-list>

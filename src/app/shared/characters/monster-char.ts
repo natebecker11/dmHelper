@@ -2,6 +2,7 @@ import { Character } from './character';
 
 export class MonsterChar extends Character {
   public Iteration: number;
+  public ShowHp = true;
   public get DisplayName(): string {
     const simpleDisplay =  this.FirstName + (this.LastName ? ' ' + this.LastName : '');
 
