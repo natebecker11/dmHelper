@@ -9,6 +9,8 @@ import { InitiativeListComponent } from './initiative/initiative-list/initiative
 import { SharedMaterialModule } from './shared/shared-material/shared-material.module';
 import { InitiativeTrackerComponent } from './pages/initiative-tracker/initiative-tracker.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedMaterialModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
