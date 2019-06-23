@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+const distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 
 const server = app.listen(process.env.PORT || 8080, function () {
   const port = server.address().port;
@@ -19,3 +22,4 @@ function handleError(res, reason, message, code) {
 app.get("/api/pcs", (req, res) => {
   res.status(200).json({message: "here some dudes"})
 });
+
