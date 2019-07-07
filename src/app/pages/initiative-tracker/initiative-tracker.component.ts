@@ -103,6 +103,13 @@ export class InitiativeTrackerComponent implements OnInit {
     Deva.MaxHp = 12;
     Deva.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
     this.PlayerChars.push({char: Deva, selected: true});
+
+    const Malik = new PlayerChar();
+    Malik.FirstName = 'Malik';
+    Malik.CurrentHp = 12;
+    Malik.MaxHp = 12;
+    Malik.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    this.PlayerChars.push({char: Malik, selected: true});
   }
 
   private _resetMonster() {
