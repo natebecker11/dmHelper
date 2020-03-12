@@ -69,40 +69,69 @@ export class InitiativeTrackerComponent implements OnInit {
   private _setChars() {
     this.PlayerChars = new Array<{char: PlayerChar, selected: boolean}>();
 
-    const Loni = new PlayerChar();
-    Loni.FirstName = 'Loni';
-    Loni.CurrentHp = 12;
-    Loni.MaxHp = 12;
-    Loni.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
-    this.PlayerChars.push({char: Loni, selected: true});
+    // const Loni = new PlayerChar();
+    // Loni.FirstName = 'Loni';
+    // Loni.CurrentHp = 12;
+    // Loni.MaxHp = 12;
+    // Loni.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    // this.PlayerChars.push({char: Loni, selected: true});
 
-    const Bleth = new PlayerChar();
-    Bleth.FirstName = 'Bleth';
-    Bleth.CurrentHp = 12;
-    Bleth.MaxHp = 12;
-    Bleth.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
-    this.PlayerChars.push({char: Bleth, selected: true});
+    // const Bleth = new PlayerChar();
+    // Bleth.FirstName = 'Bleth';
+    // Bleth.CurrentHp = 12;
+    // Bleth.MaxHp = 12;
+    // Bleth.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    // this.PlayerChars.push({char: Bleth, selected: true});
 
-    const Wren = new PlayerChar();
-    Wren.FirstName = 'Wren';
-    Wren.CurrentHp = 12;
-    Wren.MaxHp = 12;
-    Wren.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
-    this.PlayerChars.push({char: Wren, selected: true});
+    // const Wren = new PlayerChar();
+    // Wren.FirstName = 'Wren';
+    // Wren.CurrentHp = 12;
+    // Wren.MaxHp = 12;
+    // Wren.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    // this.PlayerChars.push({char: Wren, selected: true});
 
-    const Strom = new PlayerChar();
-    Strom.FirstName = 'Strom';
-    Strom.CurrentHp = 12;
-    Strom.MaxHp = 12;
-    Strom.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
-    this.PlayerChars.push({char: Strom, selected: true});
+    // const Strom = new PlayerChar();
+    // Strom.FirstName = 'Strom';
+    // Strom.CurrentHp = 12;
+    // Strom.MaxHp = 12;
+    // Strom.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    // this.PlayerChars.push({char: Strom, selected: true});
 
-    const Deva = new PlayerChar();
-    Deva.FirstName = 'Deva';
-    Deva.CurrentHp = 12;
-    Deva.MaxHp = 12;
-    Deva.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
-    this.PlayerChars.push({char: Deva, selected: true});
+    // const Deva = new PlayerChar();
+    // Deva.FirstName = 'Deva';
+    // Deva.CurrentHp = 12;
+    // Deva.MaxHp = 12;
+    // Deva.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    // this.PlayerChars.push({char: Deva, selected: true});
+
+    const Gopi = new PlayerChar();
+    Gopi.FirstName = 'Gopi';
+    Gopi.CurrentHp = 12;
+    Gopi.MaxHp = 12;
+    Gopi.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    this.PlayerChars.push({char: Gopi, selected: true});
+
+    const Justus = new PlayerChar();
+    Justus.FirstName = 'Justus';
+    Justus.CurrentHp = 12;
+    Justus.MaxHp = 12;
+    Justus.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    this.PlayerChars.push({char: Justus, selected: true});
+
+    const Zephyr = new PlayerChar();
+    Zephyr.FirstName = 'Zephyr';
+    Zephyr.CurrentHp = 12;
+    Zephyr.MaxHp = 12;
+    Zephyr.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    this.PlayerChars.push({char: Zephyr, selected: true});
+
+    const Elmbra = new PlayerChar();
+    Elmbra.FirstName = 'Elmbra';
+    Elmbra.CurrentHp = 12;
+    Elmbra.MaxHp = 12;
+    Elmbra.Attributes = new AttributeBlock(12, 14, 15, 11, 10, 8);
+    this.PlayerChars.push({char: Elmbra, selected: true});
+
   }
 
   private _resetMonster() {
